@@ -1,4 +1,4 @@
-#!/usr/bin/bash -l
+#!/usr/bin/env bash
 <%
 
 # Set our working directory.
@@ -11,6 +11,8 @@ elsif working_dir.file?
     working_dir = working_dir.parent
 end
 %>
+
+set -ex
 
 CODE_SERVER_DATAROOT="$HOME/.local/share/code-server"
 mkdir -p "$CODE_SERVER_DATAROOT/extensions"
