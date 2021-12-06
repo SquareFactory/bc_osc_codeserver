@@ -6,7 +6,6 @@ form:
   - num_cores
   - mem_per_node
   - gpus_per_node
-  - working_dir
 
 attributes:
   num_cores:
@@ -35,9 +34,3 @@ attributes:
     max: 120000
     step: 1
     id: 'mem_per_node'
-  working_dir:
-    label: 'Working Directory'
-    data-filepicker: true
-    data-target-file-type: dirs # Valid values are: files, dirs, or both
-    readonly: false
-    help: 'Select your project directory; defaults to $HOME'
