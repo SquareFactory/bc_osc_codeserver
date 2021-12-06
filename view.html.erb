@@ -1,6 +1,6 @@
 <%
   require 'digest'
-  base_url  = "/rnode/#{host}/#{port}"
+  base_url  = "/node/#{host}/#{port}"
   login_url = "#{base_url}/login"
 
   # Generate form id, based on host and port
@@ -15,7 +15,7 @@
   let date = new Date()
   date.setTime(date.getTime() + (7*24*60*60*1000))
   let expires = "expires=" + date.toUTCString()
-  let cookiePath = "path=/rnode/" + "<%= host.to_s %>" + "/" + "<%= port.to_s %>/";
+  let cookiePath = "path=/node/" + "<%= host.to_s %>" + "/" + "<%= port.to_s %>/";
   /**
     We have to use "key" as the cookie name since upstream in cdr/code-server
     the authentication cookie is hard coded "key"
