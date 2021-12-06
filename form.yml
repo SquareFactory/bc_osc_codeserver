@@ -1,20 +1,43 @@
 ---
-cluster: "pitzer-login"
+cluster: 'reindeerpizza'
+
 form:
   - bc_num_hours
+  - num_cores
+  - mem_per_node
+  - gpus_per_node
   - working_dir
-  - version
-attributes:
-  version:
-    widget: "select"
-    label: "Codeserver Version"
-    options:
-      - ["3.9", "3.9.3"]
-      - ["3.4", "3.4.1"]
 
+attributes:
+  num_cores:
+    widget: 'number_field'
+    label: 'Number of cores'
+    value: 1
+    min: 0
+    max: 16
+    step: 1
+    id: 'num_cores'
+  gpus_per_node:
+    widget: 'number_field'
+    label: 'Number of GPUs'
+    value: 0
+    min: 0
+    max: 4
+    step: 1
+    id: 'gpus_per_node'
+  mem_per_node:
+    widget: 'number_field'
+    label: 'Memory (MB)'
+    value: 1024
+    help: |
+      Blank value means all the node's available memory.
+    min: 1024
+    max: 120000
+    step: 1
+    id: 'mem_per_node'
   working_dir:
-    label: "Working Directory"
+    label: 'Working Directory'
     data-filepicker: true
-    data-target-file-type: dirs  # Valid values are: files, dirs, or both
+    data-target-file-type: dirs # Valid values are: files, dirs, or both
     readonly: false
-    help: "Select your project directory; defaults to $HOME"
+    help: 'Select your project directory; defaults to $HOME'

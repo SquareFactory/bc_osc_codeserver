@@ -1,3 +1,15 @@
 ---
 batch_connect:
   template: "basic"
+  set_host: "host=$(hostname | awk '{print $1}')"
+
+script:
+  native:
+    - "-N"
+    - "1"
+    - "--cpus-per-task"
+    - "<%= num_cores.blank? ? 1 : num_cores.to_i %>"
+    - "--gpus-per-node"
+    - "<%= gpus_per_node.blank? ? 0 : gpus_per_node.to_i %>"
+    - "--mem"
+    - "<%= mem_per_node.blank? ? 0 : mem_per_node.to_i %>"
