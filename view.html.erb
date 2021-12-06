@@ -1,6 +1,10 @@
 <%
   require 'digest'
+  base_url  = "/rnode/#{host}/#{port}"
+  login_url = "#{base_url}/login"
+  next_url  = "#{base_url}/"
 
+  full_url="#{login_url}?next=#{URI.encode(next_url)}"
   # Generate form id, based on host and port
   form_id = Digest::SHA1.hexdigest("--" + host.to_s + "--" + port.to_s + "--")
 
@@ -23,7 +27,8 @@
 })();
 </script>
 
-<form id="<%= form_id %>" action="/rnode/<%= host %>/<%= port %>/" method="get" target="_blank">
+<form id="<%= form_id %>" action="<%= full_url %>" method="post" target="_blank">
+  <input type="hidden" name="password" value="<%= password %>">
   <button class="btn btn-primary" type="submit">
     <i class="fa fa-cogs"></i> Connect to VS Code
   </button>
