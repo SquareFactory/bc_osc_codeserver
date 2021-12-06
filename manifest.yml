@@ -4,7 +4,7 @@ category: Interactive Apps
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch a [VS Code] server using [Code Server].
+  This app will launch a [VS Code] server using [OpenVSCode Server].
 
   [VS Code]: https://code.visualstudio.com/
-  [Code Server]: https://coder.com/
+  [OpenVSCode Server]: https://github.com/gitpod-io/openvscode-server/

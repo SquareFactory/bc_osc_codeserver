@@ -1,6 +1,6 @@
 <%
   require 'digest'
-  base_url  = "/node/#{host}/#{port}/?tkn=#{password}"
+  base_url  = "/rnode/#{host}/#{port}/?tkn=#{password}"
 
   # Generate form id, based on host and port
   form_id = Digest::SHA1.hexdigest("--" + host.to_s + "--" + port.to_s + "--")
